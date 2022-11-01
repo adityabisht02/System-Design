@@ -14,160 +14,172 @@ class ParkingLot {
 
     };
 
-    public boolean updateParkingAttndant(ParkingAttendant parkingAttendant, int gateId)
+    public boolean updateParkingAttndant(ParkingAttendant parkingAttendant, int gateId) {
+    };
 
 }
 
-    class ParkingFloor {
+class ParkingFloor {
 
-        int levelId;
-        List<ParkingSpace> parkingSpaces;
+    int levelId;
+    List<ParkingSpace> parkingSpaces;
 
-        ParkingDisplayBoard parkingDisplayBoard;
+    ParkingDisplayBoard parkingDisplayBoard;
 
-    }
+}
 
-    class Gate {
+class Gate {
 
-        int gateId;
-        ParkingAttendant parkingAttendant;
+    int gateId;
+    ParkingAttendant parkingAttendant;
 
-    }
+}
 
-    class Entrance extends Gate {
+class Entrance extends Gate {
 
-        public ParkingTicket getParkingTicket(Vehicle vehicle);
+    public ParkingTicket getParkingTicket(Vehicle vehicle) {
 
-    }
+    };
 
-    class Exit extends Gate {
+}
 
-        public ParkingTicket payForParking(ParkingTicket parkingTicket, PaymentType paymentType);
+class Exit extends Gate {
 
-    }
+    public ParkingTicket payForParking(ParkingTicket parkingTicket, PaymentType paymentType) {
+    };
 
-    class Address {
+}
 
-        String country;
-        String state;
-        String city;
-        String street;
-        String pinCode; // ZipCode
-    }
+class Address {
 
-    class ParkingSpace {
+    String country;
+    String state;
+    String city;
+    String street;
+    String pinCode; // ZipCode
+}
 
-        int spaceId;
-        boolean isFree;
-        double costPerHour;
-        Vehicle vehicle;
-        ParkingSpaceType parkingSpaceType;
+class ParkingSpace {
 
-    }
+    int spaceId;
+    boolean isFree;
+    double costPerHour;
+    Vehicle vehicle;
+    ParkingSpaceType parkingSpaceType;
 
-    class ParkingDisplayBoard {
+}
 
-        Map<ParkingSpaceType, Integer> freeSpotsAvailableMap;
+class ParkingDisplayBoard {
 
-        public void updateFreeSpotsAvailable(ParkingSpaceType parkingSpaceType, int spaces);
+    Map<ParkingSpaceType, Integer> freeSpotsAvailableMap;
 
-    }
+    public void updateFreeSpotsAvailable(ParkingSpaceType parkingSpaceType, int spaces) {
+    };
 
-    class Account {
+}
 
-        String name;
-        String email;
-        String password;
-        String empId;
-        Address address;
+class Account {
 
-    }
+    String name;
+    String email;
+    String password;
+    String empId;
+    Address address;
+
+}
 
 class Admin extends Account {
 
-	public boolean addParkingFloor(ParkingLot parkingLot, ParkingFloor floor);
-	public boolean addParkingSpace(ParkingFloor floor, ParkingSpace parkingSpace);
-	public boolean addParkingDisplayBoard(ParkingFloor floor, ParkingDisplayBoard parkingDisplayBoard);
-	.
-	.
-	.
+    public boolean addParkingFloor(ParkingLot parkingLot, ParkingFloor floor) {
+    };
+
+    public boolean addParkingSpace(ParkingFloor floor, ParkingSpace parkingSpace) {
+    };
+
+    public boolean addParkingDisplayBoard(ParkingFloor floor, ParkingDisplayBoard parkingDisplayBoard) {
+    };
 
 }
 
-    class ParkingAttendant extends Account {
+class ParkingAttendant extends Account {
 
-        Payment paymentService;
+    Payment paymentService;
 
-        public boolean processVehicleEntry(Vehicle vehicle);
+    public boolean processVehicleEntry(Vehicle vehicle) {
+    };
 
-        public PaymentInfo processPayment(ParkingTicket parkingTicket, PaymentType paymentType);
+    public PaymentInfo processPayment(ParkingTicket parkingTicket, PaymentType paymentType) {
+    };
 
-    }
+}
 
-    class Vehicle {
+class Vehicle {
 
-        String licenseNumber;
-        VehicleType vehicleType;
-        ParkingTicket parkingTicket;
-        PaymentInfo paymentInfo;
+    String licenseNumber;
+    VehicleType vehicleType;
+    ParkingTicket parkingTicket;
+    PaymentInfo paymentInfo;
 
-    }
+}
 
-    class ParkingTicket {
+class ParkingTicket {
 
-        int ticketId;
-        int levelId;
-        int spaceId;
-        Date vehicleEntryDateTime;
-        Date vehicleExitDateTime;
-        ParkingSpaceType parkingSpaceType;
-        double totalCost;
-        ParkingTicketStatus parkingTicketStatus;
+    int ticketId;
+    int levelId;
+    int spaceId;
+    Date vehicleEntryDateTime;
+    Date vehicleExitDateTime;
+    ParkingSpaceType parkingSpaceType;
+    double totalCost;
+    ParkingTicketStatus parkingTicketStatus;
 
-        public void updateTotalCost();
+    public void updateTotalCost() {
+    };
 
-        public void updateVehicleExitTime(Date vehicleExitDateTime);
+    public void updateVehicleExitTime(Date vehicleExitDateTime) {
+    };
 
-    }
+}
 
-    public enum PaymentType {
+public enum PaymentType {
 
-        CASH, CEDIT_CARD, DEBIT_CARD, UPI;
-    }
+    CASH, CEDIT_CARD, DEBIT_CARD, UPI;
+}
 
-    public enum ParkingSpaceType {
+public enum ParkingSpaceType {
 
-        BIKE_PARKING, CAR_PARKING, TRUCK_PARKING
+    BIKE_PARKING, CAR_PARKING, TRUCK_PARKING
 
-    }
+}
 
-    class Payment {
+class Payment {
 
-        public PaymentInfo makePayment(ParkingTicket parkingTicket, PaymentType paymentType);
-    }
+    public PaymentInfo makePayment(ParkingTicket parkingTicket, PaymentType paymentType) {
+    };
+}
 
-    public class PaymentInfo {
+public class PaymentInfo {
 
-        double amount;
-        Date paymentDate;
-        int transactionId;
-        ParkingTicket parkingTicket;
-        PaymentStatus paymentStatus;
+    double amount;
+    Date paymentDate;
+    int transactionId;
+    ParkingTicket parkingTicket;
+    PaymentStatus paymentStatus;
 
-    }
+}
 
-    public enum VehicleType {
+public enum VehicleType {
 
-        BIKE, CAR, TRUCK;
-    }
+    BIKE, CAR, TRUCK;
+}
 
-    public enum ParkingTicketStatus {
+public enum ParkingTicketStatus {
 
-        PAID, ACTIVE;
-    }
+    PAID, ACTIVE;
+}
 
 public enum PaymentStatus {
 
-	UNPAID, PENDING, COMPLETED, DECLINED, CANCELLED, REFUNDED;
+    UNPAID, PENDING, COMPLETED, DECLINED, CANCELLED, REFUNDED;
 
 }
